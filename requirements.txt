@@ -32,6 +32,7 @@ pycountry
 python-dotenv
 pyshorteners
 python-magic
+pytz
 qbittorrent-api
 requests
 speedtest-cli
@@ -40,4 +41,4 @@ tenacity
 uv
 uvloop
 xattr
-yt-dlp
+yt-dlp[default]
