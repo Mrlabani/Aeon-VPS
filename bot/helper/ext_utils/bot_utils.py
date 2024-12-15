@@ -110,18 +110,18 @@ STATUS_LIMIT = 4
 
 
 class MirrorStatus:
-    STATUS_UPLOADING = "Uploading"
-    STATUS_DOWNLOADING = "Downloading"
-    STATUS_CLONING = "Cloning"
-    STATUS_QUEUEDL = "DL queued"
-    STATUS_QUEUEUP = "UL queued"
-    STATUS_PAUSED = "Paused"
-    STATUS_ARCHIVING = "Archiving"
-    STATUS_EXTRACTING = "Extracting"
-    STATUS_SPLITTING = "Splitting"
-    STATUS_CHECKING = "CheckUp"
-    STATUS_SEEDING = "Seeding"
-    STATUS_PROCESSING = "Processing"
+    STATUS_UPLOADING   = "📤 Uᴘʟᴏᴀᴅɪɴɢ"
+    STATUS_DOWNLOADING = "📥 Dᴏᴡɴʟᴏᴀᴅɪɴɢ"
+    STATUS_CLONING     = "♻️ Cʟᴏɴᴇ"
+    STATUS_QUEUEDL     = "💤 QᴜᴇᴜᴇDL"
+    STATUS_QUEUEUP     = "💤 QᴜᴇᴜᴇUᴘ"
+    STATUS_PAUSED      = "⛔️ Pᴀᴜsᴇ"
+    STATUS_ARCHIVING   = "🔐 Aʀᴄʜɪᴠᴇ"
+    STATUS_EXTRACTING  = "📂 Exᴛʀᴀᴄᴛ"
+    STATUS_SPLITTING   = "✂️ Sᴘʟɪᴛ"
+    STATUS_CHECKING    = "📝 CʜᴇᴄᴋUᴘ"
+    STATUS_SEEDING     = "🌧 Sᴇᴇᴅ"
+    STATUS_PROCESSING  = "⚙️ Pʀᴏᴄᴇssɪɴɢ"
 
 
 class SetInterval:
@@ -235,8 +235,8 @@ def progress_bar(pct):
         pct = float(pct.strip("%"))
     p = min(max(pct, 0), 100)
     c_full = int((p + 5) // 10)
-    p_str = "●" * c_full
-    p_str += "○" * (10 - c_full)
+    p_str = "█" * c_full
+    p_str += "▒" * (10 - c_full)
     return p_str
 
 
@@ -249,7 +249,7 @@ def source(self):
 
 
 def get_readable_message():
-    msg = "<b>MLTB Lite by Aeon x Garuda</b>\n\n"
+    msg = "<b>MLTB Lite by Aeon</b>\n\n"
     button = None
     tasks = len(download_dict)
     current_time = get_readable_time(time() - bot_start_time)
@@ -344,11 +344,11 @@ def get_readable_time(seconds, full_time=False):
         ("decade", 315360000),
         ("year", 31536000),
         ("month", 2592000),
-        ("week", 604800),
-        ("day", 86400),
-        ("hour", 3600),
-        ("minute", 60),
-        ("second", 1),
+        ("w", 604800),
+        ("d", 86400),
+        ("h", 3600),
+        ("m", 60),
+        ("s", 1),
     ]
     result = ""
     for period_name, period_seconds in periods:
